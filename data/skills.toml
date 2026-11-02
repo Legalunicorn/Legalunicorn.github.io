@@ -1,0 +1,73 @@
+# Tools section on the home page. Each [[group]] is one labelled row of cards.
+# icon: file name in static/icons/tools/ without ".svg"; leave it out for no icon.
+# Logos are from Devicon (https://devicon.dev, MIT); SQL, GoogleTest and Mockito use Lucide icons.
+
+[[group]]
+name = "Languages"
+items = [
+  { name = "C++", icon = "cplusplus" },
+  { name = "Java", icon = "java" },
+  { name = "Python", icon = "python" },
+  { name = "TypeScript", icon = "typescript" },
+  { name = "JavaScript", icon = "javascript" },
+  { name = "C#", icon = "csharp" },
+  { name = "SQL", icon = "sql" },
+]
+
+[[group]]
+name = "Backend"
+items = [
+  { name = "Spring Boot", icon = "spring" },
+  { name = "Node.js", icon = "nodejs" },
+  { name = "Express.js", icon = "express" },
+  { name = "Flask", icon = "flask" },
+  { name = "Socket.IO", icon = "socketio" },
+]
+
+[[group]]
+name = "Databases & ORM"
+items = [
+  { name = "PostgreSQL", icon = "postgresql" },
+  { name = "MySQL", icon = "mysql" },
+  { name = "MongoDB", icon = "mongodb" },
+  { name = "DynamoDB", icon = "dynamodb" },
+  { name = "Prisma", icon = "prisma" },
+  { name = "Hibernate", icon = "hibernate" },
+]
+
+[[group]]
+name = "Frontend"
+items = [
+  { name = "React", icon = "react" },
+  { name = "HTML", icon = "html5" },
+  { name = "CSS", icon = "css3" },
+]
+
+[[group]]
+name = "Testing"
+items = [
+  { name = "GoogleTest", icon = "googletest" },
+  { name = "JUnit", icon = "junit" },
+  { name = "Mockito", icon = "mockito" },
+]
+
+[[group]]
+name = "Cloud, build & tools"
+items = [
+  { name = "Git", icon = "git" },
+  { name = "GitHub Actions", icon = "githubactions" },
+  { name = "Docker", icon = "docker" },
+  { name = "AWS", icon = "amazonwebservices" },
+  { name = "CMake", icon = "cmake" },
+  { name = "Maven", icon = "maven" },
+  { name = "Gradle", icon = "gradle" },
+  { name = "Linux", icon = "linux" },
+  { name = "Neovim", icon = "neovim" },
+]
+
+[[group]]
+name = "Desktop & games"
+items = [
+  { name = "JavaFX", icon = "java" },
+  { name = "Unity", icon = "unity" },
+]
