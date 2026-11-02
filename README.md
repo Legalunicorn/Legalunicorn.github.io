@@ -5,11 +5,10 @@ Personal site, built with [Hugo](https://gohugo.io).
 ## Run locally
 
 ```
-winget install Hugo.Hugo
 hugo server -D
 ```
 
-Open http://localhost:1313. `-D` also shows drafts. The page reloads on save.
+Open http://localhost:1313. `-D` also shows drafts. The page reloads on save. Needs Hugo 0.169 or newer (on Windows: `winget install Hugo.Hugo.Extended`; in WSL, install the `.deb` from the Hugo releases page and add `--poll 700ms` when the project is on the Windows drive).
 
 ## Where things are
 
@@ -34,15 +33,6 @@ Posts start as drafts. Set `draft: false` to publish. Use fenced code blocks wit
 
 ## Deploy
 
-Hosted on Cloudflare Pages (free plan), which rebuilds the site on every push to `main`.
+Hosted on GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site with Hugo and publishes it to https://legalunicorn.github.io/.
 
-One-time setup in the Cloudflare dashboard (Workers & Pages → Create → Pages → Connect to Git):
-
-| Setting | Value |
-| --- | --- |
-| Framework preset | Hugo |
-| Build command | `hugo --gc --minify` |
-| Build output directory | `public` |
-| Environment variable | `HUGO_VERSION` = `0.169.0` |
-
-Then add `hiroc.vip` under the project's Custom domains.
+One-time setup: in the GitHub repo, Settings → Pages → Source → "GitHub Actions".
