@@ -1,0 +1,57 @@
+# Projects on the home page, shown in this order.
+# To add one, copy a [[project]] block. Any field can be left out.
+# A link with an empty url shows up as a red TODO.
+# summary: the 1-2 sentence write-up shown on the card. highlights: hidden under a "Highlights" toggle.
+# image: path under static/. It is cropped to a 4:3 tile; focus picks which part stays
+# (CSS object-position, e.g. "left top", default centre). fit = "contain" shows the whole
+# image on a plain tile instead (good for logos). No image shows the first letter of the name.
+# video: path under static/ (e.g. "videos/bingus.mp4"). The image shows until the card is
+# hovered, then the video fades in over it, cropped to the same square, and plays muted on
+# loop. It only downloads on first hover.
+
+[[project]]
+name = "Edgewise"
+image = "images/edgewise.svg"
+fit = "contain"
+dates = "Oct 2026 – present"
+stack = ["C++20", "Multithreading", "CMake", "GoogleTest"]
+summary = "Parallel BFS, PageRank and connected components in C++20, up to 4.4× faster than sequential on million-vertex graphs. Every result is checked against a sequential reference, with ThreadSanitizer in CI."
+highlights = [
+  "Parallel connected components ran 3.40× and 2.06× faster than sequential union-find on SNAP road and YouTube graphs (1.1M–2.0M vertices).",
+  "Parallel BFS and PageRank ran 4.1× and 4.4× faster on generated 1.5M-vertex graphs.",
+  "Persistent worker threads, barrier synchronization and a CAS-based concurrent union-find on shared CSR storage.",
+  "GoogleTest suite runs under ThreadSanitizer in GitHub Actions CI.",
+]
+links = [
+  { name = "GitHub", url = "https://github.com/Legalunicorn/edgewise" },
+  { name = "Docs", url = "https://legalunicorn.github.io/edgewise/" },
+]
+
+[[project]]
+name = "Bingus"
+image = "images/bingus.webp"
+focus = "center top"
+dates = "Oct 2024 – Jan 2025"
+stack = ["React", "Express.js", "PostgreSQL", "Socket.IO"]
+summary = "Full-stack social media app with posts, follows and live chat. Got the most community votes of 217 projects in The Odin Project showcase."
+highlights = [
+  "OAuth login and JWT-based session management for authentication and protected routes.",
+  "Real-time messaging with WebSockets, and cloud storage for image and video uploads.",
+]
+links = [
+  { name = "Live demo", url = "https://bingus.hiroc.vip" },
+  { name = "Frontend", url = "https://github.com/Legalunicorn/bingus" },
+  { name = "API", url = "https://github.com/Legalunicorn/bingus-api" },
+]
+
+[[project]]
+name = "CafeGame"
+image = "images/cafegame.png"
+video = "videos/cafegame.mp4"
+dates = "May 2026 – Aug 2026"
+stack = ["Unity", "C#"]
+summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbital (Apollo 11). I wrote the A* pathfinding that moves the NPCs around the cafe."
+links = [
+  { name = "GitHub", url = "https://github.com/Legalunicorn/Oolong-milk-tea-bing-su" },
+  { name = "Demo", url = "https://hiroc.itch.io/ms3sub" },
+]
