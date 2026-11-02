@@ -1,0 +1,119 @@
+{{ define "main" }}
+<div class="top">
+  <header class="intro">
+    {{- with site.Params.avatar }}
+    {{- with resources.Get . }}
+    {{- $img := .Fill "320x320 Center webp q85" }}
+    <img class="avatar" src="{{ $img.RelPermalink }}" width="160" height="160" alt="">
+    {{- end }}
+    {{- end }}
+    <h1>{{ site.Params.greeting | default site.Title }}</h1>
+    <p class="meta">
+      {{- with site.Params.email }}
+      <a href="mailto:{{ . }}">{{ partial "icon.html" "mail" }}{{ . }}</a>
+      {{- end }}
+      {{- with site.Params.location }}
+      <span>{{ partial "icon.html" "map-pin" }}{{ . }}</span>
+      {{- end }}
+    </p>
+    {{- with site.Params.typing }}
+    <p class="typed" data-words="{{ . | jsonify }}">{{ site.Params.typing_prefix }}<span class="typed-word">{{ index . 0 }}</span><span class="caret"></span></p>
+    {{- end }}
+    <nav class="links">
+      <a class="primary" href="{{ site.Params.github }}">{{ partial "icon.html" "github" }}GitHub</a>
+      <a href="{{ site.Params.linkedin }}">{{ partial "icon.html" "linkedin" }}LinkedIn</a>
+    </nav>
+  </header>
+
+  <section class="about" id="about">
+    <h2>About</h2>
+    {{ .Content }}
+  </section>
+</div>
+
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+    {{- range hugo.Data.projects.project }}
+    {{- $fit := .fit }}
+    {{- $focus := .focus }}
+    <article class="card">
+      <div class="card-media{{ if eq $fit "contain" }} plain{{ end }}">
+        {{- with .image }}
+        <img src="{{ . | relURL }}" alt="" loading="lazy"{{ if eq $fit "contain" }} class="fit-contain"{{ end }}{{ with $focus }} style="object-position: {{ . }}"{{ end }}>
+        {{- else }}
+        <span class="media-fallback">{{ substr .name 0 1 }}</span>
+        {{- end }}
+        {{- /* video sits on top of the image and fades in while playing (video.js) */}}
+        {{- with .video }}
+        <video class="card-video" src="{{ . | relURL }}"{{ with $focus }} style="object-position: {{ . }}"{{ end }} muted loop playsinline preload="none"></video>
+        {{- end }}
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <h3>{{ .name }}</h3>
+          {{- with .dates }}<span class="dates">{{ . }}</span>{{ end }}
+        </div>
+        {{- with .stack }}
+        <ul class="tags">
+          {{- range . }}<li style="--h: {{ mod (hash.FNV32a .) 360 }}">{{ . }}</li>{{ end }}
+        </ul>
+        {{- end }}
+        {{- with .summary }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{- /* Highlights toggle on the left, links on the right of the same line */}}
+        <div class="card-foot">
+          {{- with .highlights }}
+          <details>
+            <summary>Highlights</summary>
+            <div class="details-body">
+              <ul class="highlights">
+                {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            </div>
+          </details>
+          {{- end }}
+          {{- with .links }}
+          <span class="card-links">
+            {{- range . }}
+            {{- if .url }}
+            <a href="{{ .url }}">{{ partial "icon.html" (cond (strings.Contains .url "github.com") "github" "arrow-up-right") }}{{ .name }}</a>
+            {{- else }}
+            <span class="todo">{{ .name }} (TODO)</span>
+            {{- end }}
+            {{- end }}
+          </span>
+          {{- end }}
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+{{- with hugo.Data.skills.group }}
+<section class="tools" id="tools">
+  <h2>Tools</h2>
+  {{- range . }}
+  <div class="tool-row">
+    <h3 class="tool-group">{{ .name }}</h3>
+    <ul class="tool-grid">
+      {{- range .items }}
+      <li class="tool">
+        {{- with .icon }}<img src="{{ printf "icons/tools/%s.svg" . | relURL }}" alt="" width="20" height="20" loading="lazy">{{ end }}
+        <span>{{ .name }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+</section>
+{{- end }}
+
+{{- with where site.RegularPages "Section" "posts" }}
+<section class="blogs" id="blogs">
+  <h2>Blogs</h2>
+  {{ partial "post-list.html" (first 5 .) }}
+  {{- if gt (len .) 5 }}<p><a href="{{ "/posts/" | relURL }}">All posts</a></p>{{ end }}
+</section>
+{{- end }}
+{{ end }}
