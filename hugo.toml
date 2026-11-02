@@ -1,0 +1,24 @@
+baseURL = 'https://hiroc.vip/'
+locale = 'en-SG'
+title = 'Nathan Yeo'
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = 'Computer Science undergraduate at NUS, Singapore'
+  greeting = "Hi, I'm Nathan"  # the big heading on the home page
+  avatar = 'images/avatar.png'  # under assets/, cropped to a rounded square; remove the line to hide it
+  typing_prefix = "I'm interested in "
+  typing = ['algorithms', 'parallel programming', 'competitive programming', 'full-stack engineering']
+  email = 'nyeo700@gmail.com'
+  location = 'Singapore'
+  github = 'https://github.com/Legalunicorn'
+  linkedin = 'https://www.linkedin.com/in/nathanyeo-ywz'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)'], ['$', '$']]
