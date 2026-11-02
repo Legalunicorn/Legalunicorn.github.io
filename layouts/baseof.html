@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <link rel="preload" href="{{ "fonts/alata.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/outfit.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  {{- with resources.Get "css/style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- end }}
+  {{- /* Render the content first so the math hook can flag pages that need KaTeX CSS. */}}
+  {{- if .IsPage }}{{ $_ := .Content }}{{ end }}
+  {{- if .Store.Get "hasMath" }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  {{- end }}
+  {{- /* Modules: each file gets its own scope, and they run after the page is parsed. */}}
+  {{- $scripts := slice "js/nav.js" }}
+  {{- if .IsHome }}{{ $scripts = $scripts | append "js/typing.js" "js/details.js" "js/video.js" }}{{ end }}
+  {{- range $scripts }}
+  {{- with resources.Get . | minify | fingerprint }}
+  <script type="module" src="{{ .RelPermalink }}"></script>
+  {{- end }}
+  {{- end }}
+</head>
+<body>
+  <header class="topbar">
+    <nav class="topbar-inner">
+      <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+      <a href="{{ "/#about" | relURL }}">About</a>
+      <a href="{{ "/#projects" | relURL }}">Projects</a>
+      <a href="{{ "/#tools" | relURL }}">Tools</a>
+      {{- if where site.RegularPages "Section" "posts" }}
+      <a href="{{ "/#blogs" | relURL }}">Blogs</a>
+      {{- end }}
+    </nav>
+  </header>
+  <main{{ if .IsHome }} class="home"{{ end }}>
+    {{- block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    <span>© {{ now.Year }} {{ site.Title }}</span>
+    <span class="footer-links">
+      <a href="{{ site.Params.github }}" aria-label="GitHub">{{ partial "icon.html" "github" }}</a>
+      <a href="{{ site.Params.linkedin }}" aria-label="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
+      {{- with site.Params.email }}
+      <a href="mailto:{{ . }}" aria-label="Email">{{ partial "icon.html" "mail" }}</a>
+      {{- end }}
+    </span>
+  </footer>
+</body>
+</html>
