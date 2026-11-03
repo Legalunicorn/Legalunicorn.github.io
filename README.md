@@ -33,6 +33,6 @@ Posts start as drafts. Set `draft: false` to publish. Use fenced code blocks wit
 
 ## Deploy
 
-Hosted on GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site with Hugo and publishes it to https://legalunicorn.github.io/.
+Hosted on GitHub Pages. Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site with Hugo and publishes it to https://hiroc.dev/.
 
-One-time setup: in the GitHub repo, Settings → Pages → Source → "GitHub Actions".
+One-time setup: in the GitHub repo, Settings → Pages → Source → "GitHub Actions", and Custom domain → `hiroc.dev`. DNS for hiroc.dev is on Porkbun: four A and four AAAA records for GitHub Pages, plus a `www` CNAME to `legalunicorn.github.io`.
