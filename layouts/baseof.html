@@ -42,8 +42,8 @@
   <footer class="site-footer">
     <span>© {{ now.Year }} {{ site.Title }}</span>
     <span class="footer-links">
-      <a href="{{ site.Params.github }}" aria-label="GitHub">{{ partial "icon.html" "github" }}</a>
-      <a href="{{ site.Params.linkedin }}" aria-label="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
+      <a href="{{ site.Params.github }}" target="_blank" rel="noopener" aria-label="GitHub">{{ partial "icon.html" "github" }}</a>
+      <a href="{{ site.Params.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">{{ partial "icon.html" "linkedin" }}</a>
       {{- with site.Params.email }}
       <a href="mailto:{{ . }}" aria-label="Email">{{ partial "icon.html" "mail" }}</a>
       {{- end }}
