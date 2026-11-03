@@ -23,6 +23,10 @@
   <script type="module" src="{{ .RelPermalink }}"></script>
   {{- end }}
   {{- end }}
+  {{- /* Visitor stats at hiroc.goatcounter.com. Only on the live build, so local previews don't count. */}}
+  {{- if hugo.IsProduction }}
+  <script data-goatcounter="https://hiroc.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {{- end }}
 </head>
 <body>
   <header class="topbar">
