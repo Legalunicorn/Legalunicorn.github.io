@@ -5,6 +5,7 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   description = 'Computer Science undergraduate at NUS, Singapore'
+  tab_title = "Nathan"  # shown in the browser tab
   greeting = "Hi, I'm Nathan"  # the big heading on the home page
   avatar = 'images/avatar.png'  # under assets/, cropped to a rounded square; remove the line to hide it
   typing_prefix = "I'm interested in "

@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
   {{- $desc := .Description | default site.Params.description }}
-  <title>{{ $title }}</title>
+  {{- /* The browser tab uses the short name; link previews keep the full one. */}}
+  {{- $tab := site.Params.tab_title | default site.Title }}
+  <title>{{ cond .IsHome $tab (printf "%s · %s" .Title $tab) }}</title>
   <meta name="description" content="{{ $desc }}">
   {{- /* Favicon and link-preview image, both cut from the avatar. */}}
   {{- with resources.Get site.Params.avatar }}
+  {{- /* Rounded favicon: the avatar inside an SVG with rounded corners. Safari ignores SVG icons and uses the PNG. */}}
+  {{- $png := .Fill "64x64 Center png" }}
+  {{- $svg := printf `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><clipPath id="r"><rect width="64" height="64" rx="14"/></clipPath><image width="64" height="64" clip-path="url(#r)" href="data:image/png;base64,%s"/></svg>` ($png.Content | base64Encode) }}
+  <link rel="icon" type="image/svg+xml" href="{{ (resources.FromString "favicon.svg" $svg).RelPermalink }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ (.Fill "32x32 Center png").RelPermalink }}">
   <link rel="apple-touch-icon" href="{{ (.Fill "180x180 Center png").RelPermalink }}">
   <meta property="og:image" content="{{ (.Fill "512x512 Center png").Permalink }}">
