@@ -36,7 +36,7 @@ focus = "center top"
 media_url = "https://bingus.hiroc.vip"
 dates = "Oct 2024 – Jan 2025"
 stack = ["React", "Express.js", "PostgreSQL", "Socket.IO"]
-summary = "Full-stack social media app with posts, follows and live chat. Most community votes among 217 projects in The Odin Project showcase."
+summary = "Full-stack social media app with posts, follows and live chat. Most community votes among 230 projects in The Odin Project showcase."
 highlights = [
   "OAuth login and JWT-based session management for authentication and protected routes.",
   "Real-time messaging with WebSockets, and cloud storage for image and video uploads.",
