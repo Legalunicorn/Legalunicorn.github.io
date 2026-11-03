@@ -1,4 +1,4 @@
-baseURL = 'https://hiroc.vip/'
+baseURL = 'https://hiroc.dev/'
 locale = 'en-SG'
 title = 'Nathan Yeo'
 disableKinds = ['taxonomy', 'term']
