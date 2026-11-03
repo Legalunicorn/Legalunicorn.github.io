@@ -37,8 +37,15 @@
     {{- range hugo.Data.projects.project }}
     {{- $fit := .fit }}
     {{- $focus := .focus }}
+    {{- /* with media_url the image tile is a link (opens in a new tab) */}}
+    {{- $link := .media_url }}
+    {{- $cls := cond (eq $fit "contain") "card-media plain" "card-media" }}
     <article class="card">
-      <div class="card-media{{ if eq $fit "contain" }} plain{{ end }}">
+      {{- if $link }}
+      <a class="{{ $cls }}" href="{{ $link }}" target="_blank" rel="noopener" aria-label="Open {{ .name }}">
+      {{- else }}
+      <div class="{{ $cls }}">
+      {{- end }}
         {{- with .image }}
         <img src="{{ . | relURL }}" alt="" loading="lazy"{{ if eq $fit "contain" }} class="fit-contain"{{ end }}{{ with $focus }} style="object-position: {{ . }}"{{ end }}>
         {{- else }}
@@ -48,7 +55,7 @@
         {{- with .video }}
         <video class="card-video" src="{{ . | relURL }}"{{ with $focus }} style="object-position: {{ . }}"{{ end }} muted loop playsinline preload="none"></video>
         {{- end }}
-      </div>
+      {{ if $link }}</a>{{ else }}</div>{{ end }}
       <div class="card-body">
         <div class="card-head">
           <h3>{{ .name }}</h3>

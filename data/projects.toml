@@ -8,11 +8,13 @@
 # video: path under static/ (e.g. "videos/bingus.mp4"). The image shows until the card is
 # hovered, then the video fades in over it, cropped to the same square, and plays muted on
 # loop. It only downloads on first hover.
+# media_url: makes the image clickable, opening this link in a new tab.
 
 [[project]]
 name = "Edgewise"
 image = "images/edgewise-bfs.svg"
 fit = "contain"
+media_url = "https://github.com/Legalunicorn/edgewise"
 dates = "Oct 2026 – present"
 stack = ["C++20", "Multithreading", "CMake", "GoogleTest"]
 summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 4.4× faster than sequential on million-vertex graphs."
@@ -31,6 +33,7 @@ links = [
 name = "Bingus"
 image = "images/bingus.webp"
 focus = "center top"
+media_url = "https://bingus.hiroc.vip"
 dates = "Oct 2024 – Jan 2025"
 stack = ["React", "Express.js", "PostgreSQL", "Socket.IO"]
 summary = "Full-stack social media app with posts, follows and live chat. Most community votes among 217 projects in The Odin Project showcase."
@@ -48,6 +51,7 @@ links = [
 name = "CafeGame"
 image = "images/cafegame.png"
 video = "videos/cafegame.mp4"
+media_url = "https://hiroc.itch.io/ms3sub"
 dates = "May 2026 – Aug 2026"
 stack = ["Unity", "C#", "Aseprite"]
 summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbital (Apollo 11). I implemented A* pathfinding that moves NPC around the cafe, and design cafe, character, UI assets."
