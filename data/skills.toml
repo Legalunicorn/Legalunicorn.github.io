@@ -30,9 +30,7 @@ items = [
   { name = "PostgreSQL", icon = "postgresql" },
   { name = "MySQL", icon = "mysql" },
   { name = "MongoDB", icon = "mongodb" },
-  { name = "DynamoDB", icon = "dynamodb" },
   { name = "Prisma", icon = "prisma" },
-  { name = "Hibernate", icon = "hibernate" },
 ]
 
 [[group]]
