@@ -2,7 +2,7 @@
   Usage: {{< tag href="https://..." icon="chessdotcom" color="green" >}}chess{{< /tag >}}
   icon: a file in assets/icons/ (optional). color: green, blue, orange or slate. */ -}}
 {{- $color := .Get "color" | default "green" -}}
-<a class="tag tag-{{ $color }}" href="{{ .Get "href" }}">
+<a class="tag tag-{{ $color }}" href="{{ .Get "href" }}" target="_blank" rel="noopener">
   {{- with .Get "icon" }}{{ partial "icon.html" . }}{{ end -}}
   {{ .Inner }}</a>
 {{- /* drops the file's trailing newline so punctuation after a tag sits tight */ -}}
