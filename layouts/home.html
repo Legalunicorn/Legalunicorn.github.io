@@ -20,8 +20,8 @@
     <p class="typed" data-words="{{ . | jsonify }}">{{ site.Params.typing_prefix }}<span class="typed-word">{{ index . 0 }}</span><span class="caret"></span></p>
     {{- end }}
     <nav class="links">
-      <a class="primary" href="{{ site.Params.github }}">{{ partial "icon.html" "github" }}GitHub</a>
-      <a href="{{ site.Params.linkedin }}">{{ partial "icon.html" "linkedin" }}LinkedIn</a>
+      <a class="primary" href="{{ site.Params.github }}" target="_blank" rel="noopener">{{ partial "icon.html" "github" }}GitHub</a>
+      <a href="{{ site.Params.linkedin }}" target="_blank" rel="noopener">{{ partial "icon.html" "linkedin" }}LinkedIn</a>
     </nav>
   </header>
 
@@ -76,7 +76,7 @@
           <span class="card-links">
             {{- range . }}
             {{- if .url }}
-            <a href="{{ .url }}">{{ partial "icon.html" (cond (strings.Contains .url "github.com") "github" "arrow-up-right") }}{{ .name }}</a>
+            <a href="{{ .url }}" target="_blank" rel="noopener">{{ partial "icon.html" (cond (strings.Contains .url "github.com") "github" "arrow-up-right") }}{{ .name }}</a>
             {{- else }}
             <span class="todo">{{ .name }} (TODO)</span>
             {{- end }}
