@@ -3,8 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+  {{- $desc := .Description | default site.Params.description }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
+  {{- /* Favicon and link-preview image, both cut from the avatar. */}}
+  {{- with resources.Get site.Params.avatar }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ (.Fill "32x32 Center png").RelPermalink }}">
+  <link rel="apple-touch-icon" href="{{ (.Fill "180x180 Center png").RelPermalink }}">
+  <meta property="og:image" content="{{ (.Fill "512x512 Center png").Permalink }}">
+  {{- end }}
+  {{- /* Link preview card when the URL is pasted into LinkedIn, Telegram, Slack etc. */}}
+  <meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta name="twitter:card" content="summary">
   <link rel="preload" href="{{ "fonts/alata.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ "fonts/outfit.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   {{- with resources.Get "css/style.css" | minify | fingerprint }}
