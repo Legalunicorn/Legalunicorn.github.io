@@ -317,7 +317,7 @@ h2 { font-size: 1.5rem; font-weight: 600; margin: 3.5rem 0 1.25rem; }
   transition: opacity 0.3s ease;
 }
 .card-video.playing { opacity: 1; }
-.card-media img.fit-contain { object-fit: contain; padding: 10%; }
+.card-media img.fit-contain { object-fit: contain; }
 .card-media.plain { background: none; }
 .media-fallback {
   display: grid;
