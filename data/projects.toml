@@ -15,7 +15,7 @@ image = "images/edgewise.svg"
 fit = "contain"
 dates = "Oct 2026 – present"
 stack = ["C++20", "Multithreading", "CMake", "GoogleTest"]
-summary = "Parallel BFS, PageRank and connected components in C++20, up to 4.4× faster than sequential on million-vertex graphs. Every result is checked against a sequential reference, with ThreadSanitizer in CI."
+summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 4.4× faster than sequential on million-vertex graphs."
 highlights = [
   "Parallel connected components ran 3.40× and 2.06× faster than sequential union-find on SNAP road and YouTube graphs (1.1M–2.0M vertices).",
   "Parallel BFS and PageRank ran 4.1× and 4.4× faster on generated 1.5M-vertex graphs.",
