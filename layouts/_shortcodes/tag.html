@@ -1,6 +1,6 @@
 {{- /* Inline link pill for prose.
   Usage: {{< tag href="https://..." icon="chessdotcom" color="green" >}}chess{{< /tag >}}
-  icon: a file in assets/icons/ (optional). color: green, blue or orange. */ -}}
+  icon: a file in assets/icons/ (optional). color: green, blue, orange or slate. */ -}}
 {{- $color := .Get "color" | default "green" -}}
 <a class="tag tag-{{ $color }}" href="{{ .Get "href" }}">
   {{- with .Get "icon" }}{{ partial "icon.html" . }}{{ end -}}

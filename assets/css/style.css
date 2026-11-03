@@ -216,6 +216,8 @@ h2 { font-size: 1.5rem; font-weight: 600; margin: 3.5rem 0 1.25rem; }
 .tag-blue:hover { background: #cfe3f6; color: #1d6aa5; }
 .tag-orange { background: #fdeed8; color: #b3640c; }
 .tag-orange:hover { background: #fbe1bd; color: #b3640c; }
+.tag-slate { background: #e8eaf0; color: #3f4a5c; }
+.tag-slate:hover { background: #d9dde6; color: #3f4a5c; }
 
 /* ---------- tools ---------- */
 
