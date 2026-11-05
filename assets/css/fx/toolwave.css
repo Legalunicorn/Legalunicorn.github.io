@@ -1,0 +1,11 @@
+/* Tool logos rest in grey. toolwave.js spreads colour outward from the one under the
+   cursor, ring by ring, like a BFS frontier. Touch screens keep the logos in colour. */
+.tool:hover { transform: none; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tool img {
+    filter: grayscale(1);
+    opacity: 0.65;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+  }
+  .tool:hover img, .tool.lit img { filter: none; opacity: 1; }
+}
