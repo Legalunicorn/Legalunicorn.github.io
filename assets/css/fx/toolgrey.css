@@ -1,0 +1,9 @@
+/* Tool logos rest in grey; only the one under the cursor shows its colour. */
+@media (hover: hover) {
+  .tool img {
+    filter: grayscale(1);
+    opacity: 0.65;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+  }
+  .tool:hover img { filter: none; opacity: 1; }
+}
