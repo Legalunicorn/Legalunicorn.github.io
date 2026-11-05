@@ -1,0 +1,7 @@
+/* Small text links get an underline that draws in from the left, like the nav line. */
+.card-links a, .intro .meta a, .post-list a {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.25s ease, color 0.2s ease;
+}
+.card-links a:hover, .intro .meta a:hover, .post-list a:hover { background-size: 100% 1px; }

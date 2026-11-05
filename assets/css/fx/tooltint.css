@@ -1,0 +1,3 @@
+/* Logos stay in colour; the tool card under the cursor picks up a soft green tint. */
+.tool { transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+.tool:hover { background: var(--accent-soft); border-color: #b9d4b1; }

@@ -1,0 +1,15 @@
+/* The intro fades in on load, one item after another. reveal.js does the same
+   for what is below the fold, once, as it scrolls into view. */
+@keyframes fx-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.intro > *, .about { animation: fx-rise 0.6s ease both; }
+.intro > :nth-child(2) { animation-delay: 0.07s; }
+.intro > :nth-child(3) { animation-delay: 0.14s; }
+.intro > :nth-child(4) { animation-delay: 0.21s; }
+.intro > :nth-child(5) { animation-delay: 0.28s; }
+.about { animation-delay: 0.2s; }
+.fx-pending { opacity: 0; }
+.fx-in { animation: fx-rise 0.6s ease both; }
+@media print { .fx-pending { opacity: 1; } }
