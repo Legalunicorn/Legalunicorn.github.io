@@ -1,0 +1,12 @@
+/* cat.js draws moving pupils and eyelids over the avatar's eyes. */
+.fx-cat { display: block; position: relative; width: fit-content; }
+.fx-cat-eyes {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(100% - 6px);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.fx-cat-pupil { transition: transform 0.12s ease-out; }
+.fx-cat-lid { transform-box: fill-box; transform-origin: top; transform: scaleY(0); }
