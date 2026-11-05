@@ -44,10 +44,9 @@
   <script type="module" src="{{ .RelPermalink }}"></script>
   {{- end }}
   {{- end }}
-  {{- /* Optional effects: each has assets/css/fx/<name>.css and assets/js/fx/<name>.js. */}}
+  {{- /* Effects: each has assets/css/fx/<name>.css and assets/js/fx/<name>.js. */}}
   {{- $fx := slice "touches" }}
-  {{- if .IsHome }}{{ $fx = $fx | append "reveal" "navspy" "toolwave" "cat" }}{{ end }}
-  {{- if hugo.IsProduction }}
+  {{- if .IsHome }}{{ $fx = $fx | append "reveal" "navspy" }}{{ end }}
   {{- range $fx }}
   {{- with resources.Get (printf "css/fx/%s.css" .) | minify | fingerprint }}
   <link rel="stylesheet" href="{{ .RelPermalink }}">
@@ -56,8 +55,8 @@
   <script type="module" src="{{ .RelPermalink }}"></script>
   {{- end }}
   {{- end }}
-  {{- else }}
-  {{ partial "fx-panel.html" $fx }}
+  {{- if not hugo.IsProduction }}
+  {{ partial "fx-panel.html" (slice "toolgrey" "tooltint" "linkdraw" "cardglow" "tilehint" "catwiggle") }}
   {{- end }}
   {{- /* Visitor stats at hiroc.goatcounter.com. Only on the live build, so local previews don't count. */}}
   {{- if hugo.IsProduction }}
