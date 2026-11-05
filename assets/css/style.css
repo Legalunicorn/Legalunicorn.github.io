@@ -248,9 +248,9 @@ h2 { font-size: 1.5rem; font-weight: 600; margin: 3.5rem 0 1.25rem; }
   border-radius: 9px;
   box-shadow: var(--shadow);
   font-size: 0.88rem;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
-.tool:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.tool:hover { box-shadow: var(--shadow-hover); }
 .tool img { width: 20px; height: 20px; object-fit: contain; flex: none; }
 
 /* ---------- projects ---------- */
