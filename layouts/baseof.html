@@ -44,6 +44,21 @@
   <script type="module" src="{{ .RelPermalink }}"></script>
   {{- end }}
   {{- end }}
+  {{- /* Optional effects: each has assets/css/fx/<name>.css and assets/js/fx/<name>.js. */}}
+  {{- $fx := slice "touches" }}
+  {{- if .IsHome }}{{ $fx = $fx | append "reveal" "navspy" "toolwave" "cat" }}{{ end }}
+  {{- if hugo.IsProduction }}
+  {{- range $fx }}
+  {{- with resources.Get (printf "css/fx/%s.css" .) | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- end }}
+  {{- with resources.Get (printf "js/fx/%s.js" .) | minify | fingerprint }}
+  <script type="module" src="{{ .RelPermalink }}"></script>
+  {{- end }}
+  {{- end }}
+  {{- else }}
+  {{ partial "fx-panel.html" $fx }}
+  {{- end }}
   {{- /* Visitor stats at hiroc.goatcounter.com. Only on the live build, so local previews don't count. */}}
   {{- if hugo.IsProduction }}
   <script data-goatcounter="https://hiroc.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
