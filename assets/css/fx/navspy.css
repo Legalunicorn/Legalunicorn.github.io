@@ -1,0 +1,18 @@
+/* A line under the nav link for the section on screen. It draws in from the left. */
+.topbar a:not(.brand) { position: relative; }
+.topbar a:not(.brand)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line-strong);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.topbar a:not(.brand):hover::after { transform: scaleX(1); }
+.topbar a.current { color: var(--fg); }
+.topbar a.current::after { transform: scaleX(1); background: var(--accent); }
