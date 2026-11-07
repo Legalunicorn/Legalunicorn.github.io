@@ -34,6 +34,7 @@
 <section class="projects" id="projects">
   <h2>Projects</h2>
   <div class="project-list">
+    {{- $icons := hugo.Data.tag_icons | default dict }}
     {{- range hugo.Data.projects.project }}
     {{- $fit := .fit }}
     {{- $focus := .focus }}
@@ -63,7 +64,12 @@
         </div>
         {{- with .stack }}
         <ul class="tags">
-          {{- range . }}<li style="--h: {{ mod (hash.FNV32a .) 360 }}">{{ . }}</li>{{ end }}
+          {{- range . }}
+          <li style="--h: {{ mod (hash.FNV32a .) 360 }}">
+            {{- /* the icon is a mask filled with the tag's text colour (style.css) */}}
+            {{- with index $icons . }}<span class="tag-icon" style="{{ printf "--icon: url(%s)" (printf "icons/tags/%s.svg" . | relURL) | safeCSS }}" aria-hidden="true"></span>{{ end }}{{ . -}}
+          </li>
+          {{- end }}
         </ul>
         {{- end }}
         {{- with .summary }}<p>{{ . | markdownify }}</p>{{ end }}

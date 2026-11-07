@@ -1,0 +1,7 @@
+/* The image slowly pushes in inside its frame, and the green bar on the left grows from the top. */
+@media (prefers-reduced-motion: no-preference) {
+  .card-media img, .card-video { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease; }
+  .card:hover .card-media img, .card:hover .card-video { transform: scale(1.07); }
+  .card::before { opacity: 1; transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease; }
+  .card:hover::before { transform: scaleY(1); }
+}

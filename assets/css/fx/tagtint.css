@@ -1,0 +1,6 @@
+/* A project tag under the cursor turns a shade deeper and picks up a thin ring and soft shadow in its own colour. */
+.tags li { transition: background-color 0.2s ease, box-shadow 0.2s ease; }
+.tags li:hover {
+  background: hsl(var(--h) 70% 88%);
+  box-shadow: 0 0 0 1px hsl(var(--h) 45% 30% / 30%), 0 2px 6px hsl(var(--h) 45% 25% / 25%);
+}
