@@ -1,0 +1,17 @@
+# Icons for project tags (the "stack" list in projects.toml).
+# tag name = file name in static/icons/tags/ without ".svg".
+# The icons are single-colour and take the tag's text colour. A tag not listed shows as text only.
+"C++20" = "cplusplus"
+"CMake" = "cmake"
+"GoogleTest" = "googletest"
+"React" = "react"
+"Express.js" = "express"
+"PostgreSQL" = "postgresql"
+"Socket.IO" = "socketio"
+"Unity" = "unity"
+"C#" = "csharp"
+"Aseprite" = "aseprite"
+"Claude Code" = "claude"
+"Codex" = "openai"
+"TypeScript" = "typescript"
+"Cytoscape.js" = "cytoscape"
