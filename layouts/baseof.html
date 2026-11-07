@@ -46,7 +46,7 @@
   {{- end }}
   {{- /* Effects: each has assets/css/fx/<name>.css, some also assets/js/fx/<name>.js. */}}
   {{- $fx := slice "touches" "linkdraw" }}
-  {{- if .IsHome }}{{ $fx = $fx | append "reveal" "navspy" "tooltint" "tilehint" "catwiggle" }}{{ end }}
+  {{- if .IsHome }}{{ $fx = $fx | append "reveal" "navspy" "tooltint" "tagtint" "tilehint" "catwiggle" }}{{ end }}
   {{- range $fx }}
   {{- with resources.Get (printf "css/fx/%s.css" .) | minify | fingerprint }}
   <link rel="stylesheet" href="{{ .RelPermalink }}">
