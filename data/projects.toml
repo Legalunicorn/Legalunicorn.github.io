@@ -58,3 +58,20 @@ summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbit
 links = [
   { name = "Demo", url = "https://hiroc.itch.io/ms3sub" },
 ]
+
+[[project]]
+name = "NUS Prerequisite Graph"
+image = "images/prereq-graph.png"
+media_url = "https://hiroc.dev/nus-prereq-graph/"
+dates = "Jul 2026 – present"
+stack = ["Claude Code", "Codex", "TypeScript", "React", "Cytoscape.js"]
+summary = "Plans NUS modules as a prerequisite graph built from NUSMods data. Each module shows the fewest semesters needed to reach it."
+highlights = [
+  "Fewest semesters is dynamic programming over the prerequisite graph, memoised so each module is worked out once, with a guard against cycles.",
+  "\"Longest paths\" traces back the chain that sets that number, like a critical path.",
+  "Counts semesters spent waiting when a module is only offered in Sem 1 or Sem 2.",
+]
+links = [
+  { name = "Live", url = "https://hiroc.dev/nus-prereq-graph/" },
+  { name = "GitHub", url = "https://github.com/Legalunicorn/nus-prereq-graph" },
+]
