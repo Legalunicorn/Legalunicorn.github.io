@@ -65,7 +65,7 @@ name = "NUS Prerequisite Graph"
 image = "images/prereq-graph.png"
 media_url = "https://hiroc.dev/nus-prereq-graph/"
 dates = "Jul 2026 – present"
-stack = ["Claude Code", "Codex", "TypeScript", "React", "Cytoscape.js"]
+stack = ["TypeScript", "React", "Cytoscape.js", "Claude Code", "Codex"]
 summary = "Plans NUS modules as a prerequisite graph built from NUSMods data. Each module shows the fewest semesters needed to reach it."
 highlights = [
   "Fewest semesters is dynamic programming over the prerequisite graph, memoised so each module is worked out once, with a guard against cycles.",
