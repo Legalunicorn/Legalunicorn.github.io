@@ -55,7 +55,7 @@ video = "videos/cafegame.mp4"
 media_url = "https://hiroc.itch.io/ms3sub"
 dates = "May 2026 – Aug 2026"
 stack = ["Unity", "C#", "Aseprite"]
-summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbital (Apollo 11). I implemented A* pathfinding that moves NPC around the cafe, and design cafe, character, UI assets."
+summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbital (Apollo 11). I implemented A* pathfinding that moves NPCs around the cafe, and designed the cafe, character and UI assets."
 links = [
   { name = "Demo", url = "https://hiroc.itch.io/ms3sub" },
 ]
