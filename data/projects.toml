@@ -17,10 +17,11 @@ fit = "contain"
 media_url = "https://github.com/Legalunicorn/edgewise"
 dates = "Oct 2026 – present"
 stack = ["C++20", "Multithreading", "CMake", "GoogleTest"]
-summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 4.4× faster than sequential on million-vertex graphs."
+summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 7.8× faster than sequential on a 16M-vertex graph."
 highlights = [
-  "Parallel connected components ran 3.40× and 2.06× faster than sequential union-find on SNAP road and YouTube graphs (1.1M–2.0M vertices).",
-  "Parallel BFS and PageRank ran 4.1× and 4.4× faster on generated 1.5M-vertex graphs.",
+  "Afforest connected components ran 7.83× faster than sequential union-find on a generated 16M-vertex graph, and 1.94× faster than parallel union-find at average degree 32.",
+  "Parallel union-find ran 3.56× and 3.39× faster than sequential on the SNAP California roads and YouTube graphs (2.0M and 1.1M vertices).",
+  "Parallel BFS and PageRank ran 4.12× and 4.39× faster on generated 1.5M-vertex graphs.",
   "Persistent worker threads, barrier synchronization and a CAS-based concurrent union-find on shared CSR storage.",
   "GoogleTest suite runs under ThreadSanitizer in GitHub Actions CI.",
 ]
