@@ -64,8 +64,7 @@ items = [
 ]
 
 [[group]]
-name = "Desktop & games"
+name = "Games"
 items = [
-  { name = "JavaFX", icon = "java" },
   { name = "Unity", icon = "unity" },
 ]

@@ -17,7 +17,7 @@ fit = "contain"
 media_url = "https://github.com/Legalunicorn/edgewise"
 dates = "Oct 2026 – present"
 stack = ["C++20", "Multithreading", "CMake", "GoogleTest"]
-summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 7.8× faster than sequential on a 16M-vertex graph."
+summary = "A C++20 library of parallel graph algorithms (BFS, PageRank, connected components) built on persistent worker threads and a CAS-based union-find. Up to 7.8× faster than sequential on a 16M-vertex graph (8-core laptop)."
 highlights = [
   "Afforest connected components ran 7.83× faster than sequential union-find on a generated 16M-vertex graph, and 1.94× faster than parallel union-find at average degree 32.",
   "Parallel union-find ran 3.56× and 3.39× faster than sequential on the SNAP California roads and YouTube graphs (2.0M and 1.1M vertices).",
@@ -49,13 +49,20 @@ links = [
 ]
 
 [[project]]
-name = "CafeGame"
+name = "CafeGame (NUS Orbital, Apollo 11)"
 image = "images/cafegame.png"
 video = "videos/cafegame.mp4"
 media_url = "https://hiroc.itch.io/ms3sub"
 dates = "May 2026 – Aug 2026"
 stack = ["Unity", "C#", "Aseprite"]
-summary = "2D cafe simulation game in Unity, built with a teammate for NUS Orbital (Apollo 11). I implemented A* pathfinding that moves NPCs around the cafe, and designed the cafe, character and UI assets."
+summary = "2D cat cafe simulation game in Unity, built with a teammate. I implemented A* pathfinding that moves NPCs around the cafe, and designed the cafe, character and UI assets."
+highlights = [
+  "A* pathfinding on a hand-placed node graph, used by both customers and cats.",
+  "Singleton managers for shared game state, and state machines for customer and cat behaviour.",
+  "Cat requests extend a shared base class, and foods and cats are defined as data, so new types are quick to add.",
+  "Three levels of rising difficulty, a shop for new cats and cafe customisation, and an interactive tutorial.",
+  "Unit tests with Unity Test Framework and a feature-branch Git workflow.",
+]
 links = [
   { name = "Demo", url = "https://hiroc.itch.io/ms3sub" },
 ]
